@@ -1,9 +1,9 @@
-import {useNavigation, useRoute} from '@react-navigation/core';
 import React from 'react';
 import {SafeAreaView, View, Text} from 'react-native';
 import Button from '../../../components/Button';
+import routes from '../../../navigation/routes';
 
-import styles from './TableUpdate.styles';
+import styles from './TablesUpdate.styles';
 
 const mapOrders = (order, i) => (
   <View key={i} style={styles.order_container}>
@@ -14,9 +14,8 @@ const mapOrders = (order, i) => (
   </View>
 );
 
-export default function TableUpdate() {
-  const navigation = useNavigation();
-  const route = useRoute();
+export default function TableUpdate({navigation, route}) {
+
   const {table} = route.params;
 
   const {price: total} = table.orders.reduce((p, c) => ({
@@ -24,7 +23,7 @@ export default function TableUpdate() {
   }));
 
   function handleCloseTable() {
-    navigation.navigate('TablesPage', {
+    navigation.navigate(routes.TABLES_PAGE, {
       updatedTable: {...table, isActive: false},
     });
   }

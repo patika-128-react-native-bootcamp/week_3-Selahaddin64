@@ -4,13 +4,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 import Tables from '../../pages/Tables/Tables';
-import TableUpdate from '../../pages/Tables/TableUpdate';
+import TablesUpdate from '../../pages/Tables/TablesUpdate';
+import routes from '../routes';
 
-export default function TableStack() {
+export default function TablesStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="TablesPage"
+        name={routes.TABLES_PAGE}
         component={Tables}
         options={{
           headerTintColor: 'black',
@@ -22,8 +23,8 @@ export default function TableStack() {
         }}
       />
       <Stack.Screen
-        name="TableUpdatePage"
-        component={TableUpdate}
+        name={routes.TABLES_UPDATE_PAGE}
+        component={TablesUpdate}
         options={{
           headerTintColor: 'black',
           headerTitleStyle: {

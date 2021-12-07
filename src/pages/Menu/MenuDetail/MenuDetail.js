@@ -1,11 +1,10 @@
-import {useRoute} from '@react-navigation/core';
 import React from 'react';
 import {SafeAreaView, View, Text} from 'react-native';
 
 import styles from './MenuDetail.styles';
 
-export default function MenuDetail() {
-  const route = useRoute();
+export default function MenuDetail({route}) {
+
   const {fd} = route.params;
 
   const renderIngredients = item => {

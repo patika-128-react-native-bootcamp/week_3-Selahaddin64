@@ -3,9 +3,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import MenuStack from './MenuStack';
-import TableStack from './TableStack';
+import TablesStack from './TablesStack';
 import ProductsStack from './ProductsStack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import routes from './routes';
 
 const Drawer = createDrawerNavigator();
 
@@ -14,7 +15,7 @@ export default function Navigation() {
     <NavigationContainer>
       <Drawer.Navigator screenOptions={{headerShown: false}}>
         <Drawer.Screen
-          name="ProductsStack"
+          name={routes.PRODUCTS_STACK}
           component={ProductsStack}
           options={{
             drawerLabel: 'Products',
@@ -25,7 +26,7 @@ export default function Navigation() {
           }}
         />
         <Drawer.Screen
-          name="MenuStack"
+          name={routes.MENU_STACK}
           component={MenuStack}
           options={{
             drawerLabel: 'Menu',
@@ -36,8 +37,8 @@ export default function Navigation() {
           }}
         />
         <Drawer.Screen
-          name="TableStack"
-          component={TableStack}
+          name={routes.TABLES_STACK}
+          component={TablesStack}
           options={{
             drawerLabel: 'Tables',
             drawerIcon: ({size, color}) => (

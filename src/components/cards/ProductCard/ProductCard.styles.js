@@ -8,6 +8,7 @@ export default StyleSheet.create({
     height: deviceSize.height / 5,
     alignItems: 'flex-end',
     flexDirection: 'row',
+    marginBottom: 5,
   },
   name_label: {
     margin: 5,

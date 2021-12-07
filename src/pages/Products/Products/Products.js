@@ -1,23 +1,23 @@
-import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {SafeAreaView, FlatList} from 'react-native';
 import ProductCard from '../../../components/cards/ProductCard/ProductCard';
 import mockData from '../../../MOCK_DATA.json';
+import routes from '../../../navigation/routes';
 
-export default function Products() {
-  const navigation = useNavigation();
+export default function Products({navigation}) {
 
   function navigate(selectedProduct) {
-    navigation.navigate('PrdctDtlPage', {product: selectedProduct});
+    navigation.navigate(routes.PRODUCTS_DETAİL_PAGE, {product: selectedProduct});
   }
 
+  const renderProduct = ({item}) => (
+    <ProductCard item={item} onSelect={() => navigate(item)} />
+  );
   return (
     <SafeAreaView>
       <FlatList
         data={mockData.products}
-        renderItem={({item}) => (
-          <ProductCard item={item} onSelect={() => navigate(item)} />
-        )}
+        renderItem={renderProduct}
       />
     </SafeAreaView>
   );
