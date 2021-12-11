@@ -1,11 +1,9 @@
-import {useRoute} from '@react-navigation/core';
 import React from 'react';
 import {View, SafeAreaView, Text, ScrollView, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import styles from './ProductDetail.styles';
+import styles from './ProductsDetail.styles';
 
-export default function ProductDetail() {
-  const route = useRoute();
+export default function ProductsDetail({route}) {
 
   const {product} = route.params;
 
@@ -23,7 +21,7 @@ export default function ProductDetail() {
           {product.isPopular && <Icon name="star" color="orange" size={25} />}
         </View>
         <ScrollView horizontal bounces={false}>
-          {product.ingredients.map((ing, ind) => {
+          {product.ingredients.map((ing) => {
             return (
               <View style={styles.badge_container}>
                 <Text style={styles.badge_label}>{ing}</Text>
