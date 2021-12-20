@@ -10,12 +10,13 @@ export default function Products({navigation}) {
     navigation.navigate(routes.PRODUCTS_DETAİL_PAGE, {product: selectedProduct});
   }
 
-  const renderProduct = ({item}) => (
+  const renderProduct = ({item, index}) => (
     <ProductCard item={item} onSelect={() => navigate(item)} />
   );
   return (
     <SafeAreaView>
       <FlatList
+        keyExtractor={(item,index)=>item.p_id.toString()}
         data={mockData.products}
         renderItem={renderProduct}
       />

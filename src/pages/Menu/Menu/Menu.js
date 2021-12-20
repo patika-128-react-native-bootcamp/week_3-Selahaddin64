@@ -8,7 +8,6 @@ import mockData from '../../../MOCK_DATA.json';
 import routes from '../../../navigation/routes';
 
 export default function Menu({navigation}) {
-
   function handleNavigateMenuCreate(selectedMenu) {
     navigation.navigate(routes.CREATE_MENU_PAGE, {menu: selectedMenu});
   }
@@ -20,7 +19,11 @@ export default function Menu({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <FlatList data={mockData.menu} renderItem={renderMenu} />
+        <FlatList
+          data={mockData.menu}
+          renderItem={renderMenu}
+          keyExtractor={mockData.menu.id}
+        />
       </View>
     </SafeAreaView>
   );

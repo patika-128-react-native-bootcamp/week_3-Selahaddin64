@@ -15,6 +15,11 @@ export default function CreateMenu({navigation, route}) {
   const [price, setPrice] = useState();
 
   function handleNavigateDetail() {
+    
+    if(name=='' || description=='' || ingredients=='' || price=='')
+    {
+      return;
+    }
     const fd = {
       name,
       description,

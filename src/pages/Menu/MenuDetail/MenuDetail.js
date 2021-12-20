@@ -7,9 +7,9 @@ export default function MenuDetail({route}) {
 
   const {fd} = route.params;
 
-  const renderIngredients = item => {
+  const renderIngredients = (item, index)  => {
     return (
-      <View style={styles.badge_container}>
+      <View style={styles.badge_container} key={index}>
         <Text style={styles.badge_label}>{item}</Text>
       </View>
     );
